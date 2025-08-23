@@ -4,6 +4,8 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
     // selector 
     const userPin = 1234;
 
+    const bank = document.getElementById('bank').value;
+
     const accountNumber = document.getElementById("account-number").value;
 
     const amount = Number(document.getElementById("amount-digit").value);
@@ -13,6 +15,11 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
     const mainBalance = parseInt(
       document.getElementById("main-balance").innerText
     );
+    
+    if (bank === "Select Bank") {
+      alert("please select a bank");
+      return;
+    }
 
     if(accountNumber.length > 11){
         alert("please type correct account number");
