@@ -2,11 +2,11 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
     event.preventDefault();
 
     // selector 
-    const bank = document.getElementById('bank').value;
+    const userPin = 1234;
 
     const accountNumber = document.getElementById("account-number").value;
 
-    const amount = parseInt(document.getElementById("amount-digit").value);
+    const amount = Number(document.getElementById("amount-digit").value);
 
     const pinNumber = parseInt(document.getElementById("pin-number").value);
 
@@ -14,8 +14,22 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
       document.getElementById("main-balance").innerText
     );
 
+    if(accountNumber.length > 11){
+        alert("please type correct account number");
+        return;
+    }
+
+    if (isNaN(amount)) {
+      alert("please enter amount digit");
+      return;
+    }
+
+    if(userPin !== pinNumber){
+        alert("please provide valid pin number");
+        return;
+    }
+
     const totalBalance = amount + mainBalance;
-    
     document.getElementById('main-balance').innerText = totalBalance;
 });
 
