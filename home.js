@@ -138,6 +138,47 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
     transactionData.push(data);
 });
 
+// transfer money feature
+document.getElementById('transfer-money-btn').addEventListener('click', function(event){
+  event.preventDefault();
+  const transferAccount = getInputValue('user-number');
+  const amount = getInputValueNumber('transfer-amount');
+  const pinNumber = getInputValueNumber('transfer-money-pin');
+  const mainBalance = getInnerTextNumber('main-balance');
+  const moneyDifferent = mainBalance - amount;
+
+  if(transferAccount.length < 11){
+    alert("Invalid Account Number");
+    return;
+  }
+
+  if(moneyDifferent < 0){
+    alert("There are not enough funds in your account.");
+    return;
+  }
+
+  if(amount < 1){
+    alert("Invalid Amount");
+    return;
+  }
+
+  if(pinNumber !== userPin){
+    alert("Invalid Pin Number");
+    return;
+  }
+
+  // transfer money 
+  const currentBalance = mainBalance - amount;
+  setInnerText(currentBalance);
+
+  const data = {
+      name: "Transfer Money",
+      date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data);
+});
+
+
 // transaction 
 document.getElementById('transaction-area').addEventListener('click', function(){
   const transactionContainer = document.getElementById('transaction-container');

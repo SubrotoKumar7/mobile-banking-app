@@ -127,6 +127,24 @@
         <!-- transfer money -->
         <div class="services hidden" id="transfer-money-section">
             <h1 class="font-bold py-3 text-lg px-3">Transfer Money</h1>
+            <form class="bg-white rounded-xl p-3">
+                <div class="mb-4">
+                    <label class="font-medium" for="user-number">User Account Number</label>
+                    <br>
+                    <input type="text" id="user-number" required placeholder="Enter 11 digit number" class="input bg-[#f4f5f7] rounded-xl mt-3 pl-5 w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="font-medium" for="transfer-amount">Amount</label>
+                    <br>
+                    <input type="text" id="transfer-amount" required placeholder="Enter amount to withdraw" class="input bg-[#f4f5f7] rounded-xl mt-3 pl-5 w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="font-medium" for="transfer-money-pin">Pin Number</label>
+                    <br>
+                    <input type="text" id="transfer-money-pin" required placeholder="Enter 4 digit pin number" class="input bg-[#f4f5f7] rounded-xl mt-3 pl-5 w-full" />
+                </div>
+                <button id="transfer-money-btn" class="btn bg-[#0874F2] hover:bg-[#0874c2] text-white w-full rounded-3xl cursor-pointer mb-2">Send Now</button>
+            </form>
         </div>
 
         <!-- get bonus -->
