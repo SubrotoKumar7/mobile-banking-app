@@ -1,3 +1,15 @@
+// reusable get element function
+function getInputValueNumber(id){
+  let element = Number(document.getElementById(id).value);
+  return element;
+}
+
+function getInputValue(id){
+  let element = document.getElementById(id).value;
+  return element;
+}
+
+
 // add money feature
 document.getElementById("add-money-btn").addEventListener('click', function(event){
     event.preventDefault();
@@ -5,13 +17,13 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
     // selector 
     const userPin = 1234;
 
-    const bank = document.getElementById('bank').value;
+    const bank = getInputValue("bank");
 
-    const accountNumber = document.getElementById("account-number").value;
+    const accountNumber = getInputValue("account-number");
 
-    const amount = Number(document.getElementById("amount-digit").value);
+    const amount = getInputValueNumber('amount-digit');
 
-    const pinNumber = parseInt(document.getElementById("pin-number").value);
+    const pinNumber = getInputValueNumber("pin-number");
 
     const mainBalance = parseInt(
       document.getElementById("main-balance").innerText
@@ -27,7 +39,7 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
         return;
     }
 
-    if (isNaN(amount)) {
+    if (isNaN(amount) || amount < 1) {
       alert("please enter amount digit");
       return;
     }
@@ -48,7 +60,7 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
   // select elements
   const mainBalance = Number(document.getElementById("main-balance").innerText);
 
-  const cashoutAmount = Number(document.getElementById("cashout-amount").value);
+  const cashoutAmount = getInputValueNumber("cashout-amount");
 
   const currentBalance = mainBalance - cashoutAmount;
 
