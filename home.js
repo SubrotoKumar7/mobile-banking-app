@@ -23,12 +23,12 @@ function setInnerText(value){
   return element;
 }
 
+// user pin number
+const userPin = 1234;
+
 // add money feature
 document.getElementById("add-money-btn").addEventListener('click', function(event){
     event.preventDefault();
-
-    // selector 
-    const userPin = 1234;
 
     const bank = getInputValue("bank");
 
@@ -73,6 +73,28 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
   const mainBalance = getInnerTextNumber("main-balance");
 
   const cashoutAmount = getInputValueNumber("cashout-amount");
+
+  const agentNumber = getInputValue("agent-number");
+
+  const pinNumber = getInputValueNumber("cashout-pin");
+
+  const moneyDifferent = mainBalance - cashoutAmount;
+
+  // form validation
+  if(agentNumber.length < 11){
+    alert("please type correct agent number");
+    return;
+  }
+
+  if(moneyDifferent < 0){
+    alert("There are not enough funds in your account.");
+    return;
+  }
+
+  if(pinNumber !== userPin){
+    alert('Invalid Pin Number')
+    return;
+  }
 
   const currentBalance = mainBalance - cashoutAmount;
 
