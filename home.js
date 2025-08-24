@@ -46,8 +46,10 @@ function activeStatus(id){
   document.getElementById(id).classList.add("border-[#0874f2]", "bg-[#0874f20d]");
 }
 
-// user pin number
+// infomation
 const userPin = 1234;
+
+const transactionData = [];
 
 // add money feature
 document.getElementById("add-money-btn").addEventListener('click', function(event){
@@ -86,6 +88,12 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
 
     const totalBalance = amount + mainBalance;
     setInnerText(totalBalance);
+
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data);
 });
 
 // money withdraw feature
@@ -122,12 +130,50 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
   const currentBalance = mainBalance - cashoutAmount;
 
   setInnerText(currentBalance);
+
+  const data = {
+      name: "Cashout",
+      date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data);
 });
+
+// transaction 
+document.getElementById('transaction-area').addEventListener('click', function(){
+  const transactionContainer = document.getElementById('transaction-container');
+  transactionContainer.innerText = "";
+
+  for(let data of transactionData){
+    const div = document.createElement("div");
+    div.innerHTML = `
+            <div class="flex items-center justify-between p-4 my-3 bg-white rounded-lg">
+                <div class="flex items-center">
+                    <div class="bg-[#f4f5f7] p-3 rounded-full">
+                        <img src="assets/wallet1.png" alt="wallet icon">
+                    </div>
+                    <div class="ml-4">
+                        <h1 class="font-semibold text-lg">${data.name}</h1>
+                        <p class="text-gray-500">${data.date}</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </div>
+    
+    `
+
+    transactionContainer.appendChild(div);
+  }
+});
+
+
 
 // logout feature
 document.getElementById("logout-btn").addEventListener('click', function(){
     window.location.href = './index.html';
 });
+
 
 
 // section toggle 
