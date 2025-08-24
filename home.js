@@ -49,7 +49,10 @@ function activeStatus(id){
 // infomation
 const userPin = 1234;
 
+const coupon = "GET500";
+
 const transactionData = [];
+
 
 // add money feature
 document.getElementById("add-money-btn").addEventListener('click', function(event){
@@ -178,6 +181,22 @@ document.getElementById('transfer-money-btn').addEventListener('click', function
     transactionData.push(data);
 });
 
+// get coupon feature
+document.getElementById('get-bonus-btn').addEventListener('click', function(event){
+  event.preventDefault();
+  const userCoupon = getInputValue('coupon-code');
+  let mainBalance = getInnerTextNumber('main-balance');
+  const couponMoney = 500;
+  let currentBalance;
+
+  if(userCoupon === coupon){
+    currentBalance = mainBalance + couponMoney;
+    setInnerText(currentBalance);
+  }
+  else{
+    alert("Wrong Coupon Code");
+  }
+});
 
 // transaction 
 document.getElementById('transaction-area').addEventListener('click', function(){
