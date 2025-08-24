@@ -204,6 +204,53 @@ document.getElementById('get-bonus-btn').addEventListener('click', function(even
     transactionData.push(data);
 });
 
+// pay bill feature
+document.getElementById('pay-now-btn').addEventListener('click', function(event){
+  event.preventDefault();
+  const billType = getInputValue('pay-bill-type');
+  const billerAccount = getInputValue('pay-bill-account');
+  const payAmount = getInputValueNumber('pay-amount');
+  const pinNumber = getInputValueNumber('bill-pay-pin');
+  const mainBalance = getInnerTextNumber('main-balance');
+  const moneyDifferent = mainBalance - payAmount;
+
+  // form validation
+  if(billType === "Select Bill"){
+    alert("Please select bill type")
+    return;
+  }
+
+  if(billerAccount.length < 11){
+    alert("Invalid Account Number");
+    return;
+  }
+
+  if(moneyDifferent < 0){
+    alert("There are not enough funds in your account.");
+    return;
+  }
+
+  if(payAmount === 0 || payAmount < 1){
+    alert("Invalid Amount");
+    return;
+  }
+
+  if(pinNumber !== userPin){
+    alert("Invalid Pin Number");
+    return;
+  }
+
+  const currentBalance = mainBalance - payAmount;
+  setInnerText(currentBalance);
+
+  const data = {
+      name: billType,
+      date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data);
+
+});
+
 // transaction 
 document.getElementById('transaction-area').addEventListener('click', function(){
   const transactionContainer = document.getElementById('transaction-container');

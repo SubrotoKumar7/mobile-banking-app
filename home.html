@@ -163,6 +163,36 @@
         <!-- pay bill -->
         <div class="services hidden" id="pay-bill-section">
             <h1 class="font-bold py-3 text-lg px-3">Pay Bill</h1>
+            <form class="bg-white rounded-xl p-3">
+                <div class="mb-4">
+                    <label class="font-medium" for="pay-bill-type">Select To Pay</label>
+                    <br>
+                    <select class="select w-full rounded-xl bg-[#f4f5f7] mt-3" id="pay-bill-type" required>
+                        <option disabled selected>Select Bill</option>
+                        <option>Electricity Bill</option>
+                        <option>Internet Bill</option>
+                        <option>Gas Bill</option>
+                        <option>Water Bill</option>
+                        <option>Donate</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="font-medium" for="pay-bill-account">Biller Account Number</label>
+                    <br>
+                    <input type="text" id="pay-bill-account" required placeholder="Enter account 11 digit number" class="input bg-[#f4f5f7] rounded-xl mt-3 pl-5 w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="font-medium" for="pay-amount">Amount to Pay</label>
+                    <br>
+                    <input type="text" id="pay-amount" required placeholder="Enter amount to pay" class="input bg-[#f4f5f7] rounded-xl mt-3 pl-5 w-full" />
+                </div>
+                <div class="mb-4">
+                    <label class="font-medium" for="bill-pay-pin">Pin Number</label>
+                    <br>
+                    <input type="text" id="bill-pay-pin" required placeholder="Enter 4 digit pin number" class="input bg-[#f4f5f7] rounded-xl mt-3 pl-5 w-full" />
+                </div>
+                <button id="pay-now-btn" class="btn bg-[#0874F2] hover:bg-[#0874c2] text-white w-full rounded-3xl cursor-pointer mb-2">Pay Now</button>
+            </form>
         </div>
 
         <!-- transactions -->
