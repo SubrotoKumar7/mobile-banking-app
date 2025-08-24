@@ -1,14 +1,27 @@
-// reusable get element function
+// get input form value to number
 function getInputValueNumber(id){
   let element = Number(document.getElementById(id).value);
   return element;
 }
 
+// get input form value
 function getInputValue(id){
   let element = document.getElementById(id).value;
   return element;
 }
 
+// get inner text 
+function getInnerTextNumber(id){
+  const element = Number(document.getElementById(id).innerText);
+  return element;
+}
+
+// set inner text
+function setInnerText(value){
+  const element = document.getElementById("main-balance");
+  element.innerText = value;
+  return element;
+}
 
 // add money feature
 document.getElementById("add-money-btn").addEventListener('click', function(event){
@@ -25,10 +38,9 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
 
     const pinNumber = getInputValueNumber("pin-number");
 
-    const mainBalance = parseInt(
-      document.getElementById("main-balance").innerText
-    );
+    const mainBalance = getInnerTextNumber('main-balance');
     
+    // input form validation
     if (bank === "Select Bank") {
       alert("please select a bank");
       return;
@@ -50,7 +62,7 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
     }
 
     const totalBalance = amount + mainBalance;
-    document.getElementById('main-balance').innerText = totalBalance;
+    setInnerText(totalBalance);
 });
 
 // money withdraw feature
@@ -58,13 +70,13 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
   event.preventDefault();
 
   // select elements
-  const mainBalance = Number(document.getElementById("main-balance").innerText);
+  const mainBalance = getInnerTextNumber("main-balance");
 
   const cashoutAmount = getInputValueNumber("cashout-amount");
 
   const currentBalance = mainBalance - cashoutAmount;
 
-  document.getElementById('main-balance').innerText = currentBalance;
+  setInnerText(currentBalance);
 });
 
 // logout feature
