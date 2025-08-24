@@ -23,6 +23,16 @@ function setInnerText(value){
   return element;
 }
 
+// toggle feature reusable code
+function toggleService(id){
+  const services = document.getElementsByClassName("services");
+
+  for (let service of services) {
+    service.style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+
 // user pin number
 const userPin = 1234;
 
@@ -109,12 +119,25 @@ document.getElementById("logout-btn").addEventListener('click', function(){
 
 // section toggle 
 document.getElementById("add-money-area").addEventListener('click', function(){
-  document.getElementById("cashout-section").style.display = 'none';
-  document.getElementById("add-money-section").style.display = "block";
-
+  toggleService("add-money-section");
 });
 
 document.getElementById("cashout-area").addEventListener("click", function () {
-  document.getElementById("add-money-section").style.display = "none";
-  document.getElementById("cashout-section").style.display = "block";
+  toggleService("cashout-section");
+});
+
+document.getElementById("transfer-money-area").addEventListener("click", function () {
+  toggleService("transfer-money-section");
+});
+
+document.getElementById("get-bonus-area").addEventListener("click", function () {
+  toggleService("get-bonus-section");
+});
+
+document.getElementById("pay-bill-area").addEventListener("click", function () {
+  toggleService("pay-bill-section");
+});
+
+document.getElementById("transaction-area").addEventListener("click", function () {
+  toggleService("transaction-section");
 });

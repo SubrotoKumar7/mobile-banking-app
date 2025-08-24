@@ -38,23 +38,28 @@
                 <img class="mx-auto mb-2" src="assets/wallet1.png" alt="wallet icon">
                 <p class="font-semibold">Add Money</p>
             </div>
+            
             <div id="cashout-area" class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
                 <img class="mx-auto mb-2" src="assets/send1.png" alt="send icon">
                 <p class="font-semibold">Cashout</p>
             </div>
-            <div class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
+
+            <div id="transfer-money-area" class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
                 <img class="mx-auto mb-2" src="assets/money1.png" alt="money icon">
                 <p class="font-semibold whitespace-nowrap">Transfer Money</p>
             </div>
-            <div class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
+
+            <div id="get-bonus-area" class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
                 <img class="mx-auto mb-2" src="assets/bonus1.png" alt="bonus icon">
                 <p class="font-semibold">Get Bonus</p>
             </div>
-            <div class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
+
+            <div id="pay-bill-area" class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
                 <img class="mx-auto mb-2" src="assets/purse1.png" alt="purse icon">
                 <p class="font-semibold">Pay Bill</p>
             </div>
-            <div class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
+
+            <div id="transaction-area" class="border border-gray-300 text-center p-5 rounded-lg flex justify-center items-center flex-col">
                 <img class="mx-auto mb-2" src="assets/transaction1.png" alt="transaction icon">
                 <p class="font-semibold">Transactions</p>
             </div>
@@ -63,7 +68,7 @@
 
     <div class="max-w-lg mx-auto mt-8 pb-16">
         <!-- add money -->
-        <div id="add-money-section">
+        <div class="services" id="add-money-section">
             <h1 class="font-bold py-3 text-lg px-3">Add Money</h1>
             <form class="bg-white rounded-xl p-3">
                 <div class="mb-4">
@@ -96,7 +101,7 @@
         </div>
 
         <!-- cash out -->
-        <div id="cashout-section" class="hidden">
+        <div class="services hidden" id="cashout-section">
             <h1 class="font-bold py-3 text-lg px-3">Cashout</h1>
             <form class="bg-white rounded-xl p-3">
                 <div class="mb-4">
@@ -116,6 +121,26 @@
                 </div>
                 <button id="withdraw-money-btn" class="btn bg-[#0874F2] hover:bg-[#0874c2] text-white w-full rounded-3xl cursor-pointer mb-2">Withdraw Money</button>
             </form>
+        </div>
+
+        <!-- transfer money -->
+        <div class="services hidden" id="transfer-money-section">
+            <h1 class="font-bold py-3 text-lg px-3">Transfer Money</h1>
+        </div>
+
+        <!-- get bonus -->
+        <div class="services hidden" id="get-bonus-section">
+            <h1 class="font-bold py-3 text-lg px-3">Get Bonus</h1>
+        </div>
+
+        <!-- pay bill -->
+        <div class="services hidden" id="pay-bill-section">
+            <h1 class="font-bold py-3 text-lg px-3">Pay Bill</h1>
+        </div>
+
+        <!-- transactions -->
+        <div class="services hidden" id="transaction-section">
+            <h1 class="font-bold py-3 text-lg px-3">Transactions</h1>
         </div>
     </div>
     <script src="home.js"></script>
