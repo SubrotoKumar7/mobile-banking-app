@@ -196,6 +196,12 @@ document.getElementById('get-bonus-btn').addEventListener('click', function(even
   else{
     alert("Wrong Coupon Code");
   }
+
+  const data = {
+      name: "Added Bonus",
+      date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data);
 });
 
 // transaction 
