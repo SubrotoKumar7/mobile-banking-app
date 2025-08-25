@@ -1,3 +1,11 @@
+// default information
+const userPin = 1234;
+
+const coupon = "GET500";
+
+const transactionData = [];
+
+
 // get input form value to number
 function getInputValueNumber(id){
   let element = Number(document.getElementById(id).value);
@@ -45,13 +53,6 @@ function activeStatus(id){
   document.getElementById(id).classList.remove('border-gray-300');
   document.getElementById(id).classList.add("border-[#0874f2]", "bg-[#0874f20d]");
 }
-
-// infomation
-const userPin = 1234;
-
-const coupon = "GET500";
-
-const transactionData = [];
 
 
 // add money feature
@@ -195,6 +196,7 @@ document.getElementById('get-bonus-btn').addEventListener('click', function(even
   }
   else{
     alert("Wrong Coupon Code");
+    return;
   }
 
   const data = {
