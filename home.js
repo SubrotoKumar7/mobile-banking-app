@@ -5,6 +5,26 @@ const coupon = "GET500";
 
 const transactionData = [];
 
+// transaction alert
+function successful(){
+  const container = document.getElementById("toast-container");
+  const div = document.createElement('div');
+  div.innerHTML = `
+        <div id="successful" class="toast toast-top toast-end">
+            <div class="alert bg-[#0874F2] text-white">
+                <span>Transactions Successful.</span>
+            </div>
+        </div>
+  `;
+  container.appendChild(div);
+
+  // container.classList.remove("hidden");
+
+  setTimeout(() => {
+    div.classList.add("hidden");
+    container.removeChild(div);
+  }, 1500);
+}
 
 // get input form value to number
 function getInputValueNumber(id){
@@ -93,6 +113,8 @@ document.getElementById("add-money-btn").addEventListener('click', function(even
     const totalBalance = amount + mainBalance;
     setInnerText(totalBalance);
 
+    successful();
+
     const data = {
       name: "Add Money",
       date: new Date().toLocaleTimeString()
@@ -132,6 +154,8 @@ document.getElementById('withdraw-money-btn').addEventListener('click', function
   }
 
   const currentBalance = mainBalance - cashoutAmount;
+
+  successful();
 
   setInnerText(currentBalance);
 
@@ -175,6 +199,8 @@ document.getElementById('transfer-money-btn').addEventListener('click', function
   const currentBalance = mainBalance - amount;
   setInnerText(currentBalance);
 
+  successful();
+
   const data = {
       name: "Transfer Money",
       date: new Date().toLocaleTimeString()
@@ -198,6 +224,8 @@ document.getElementById('get-bonus-btn').addEventListener('click', function(even
     alert("Wrong Coupon Code");
     return;
   }
+
+  successful();
 
   const data = {
       name: "Added Bonus",
@@ -244,6 +272,8 @@ document.getElementById('pay-now-btn').addEventListener('click', function(event)
 
   const currentBalance = mainBalance - payAmount;
   setInnerText(currentBalance);
+
+  successful();
 
   const data = {
       name: billType,
