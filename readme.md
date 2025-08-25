@@ -6,6 +6,10 @@ This is a **learning project** built to understand and practice the fundamentals
 
 ---
 
+## Default User Credential
+`Login Number: 12345678910`,
+`Password: 1234`
+
 ## 🎯 Project Objective
 
 > ⚠️ This project was created **for learning and practice purposes only**. It does not have backend integration or real data processing.
