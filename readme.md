@@ -9,6 +9,7 @@ This is a **learning project** built to understand and practice the fundamentals
 ## Default User Credential
 `Login Number: 12345678910`,
 `Password: 1234`
+`Bonus Coupon Code: GET500`
 
 ## 🎯 Project Objective
 
